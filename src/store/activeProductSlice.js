@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getProductById } from '../api/product';
-import * as status from '../constants/thunkStatus';
+import { getProductById } from 'api/product';
+import * as status from 'constants/thunkStatus';
 
 const name = 'activeProducts';
 const initialState = {

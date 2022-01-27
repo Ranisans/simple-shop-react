@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getCategoryList } from '../api/category';
-import * as status from '../constants/thunkStatus';
+import { getCategoryList } from 'api/category';
+import * as status from 'constants/thunkStatus';
 
 const name = 'category';
 const initialState = {
@@ -48,4 +48,4 @@ export const categorySlice = createSlice({
 });
 
 export const { setActiveCategory } = categorySlice.actions;
-export default categorySlice.reducers;
+export default categorySlice.reducer;

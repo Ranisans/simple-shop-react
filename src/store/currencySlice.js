@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { getAllCurrencies } from '../api/currency';
-import * as status from '../constants/thunkStatus';
+import { getAllCurrencies } from 'api/currency';
+import * as status from 'constants/thunkStatus';
 
 const name = 'currency';
 const initialState = {
@@ -35,7 +35,7 @@ export const currencySlice = createSlice({
       })
       .addCase(loadCurrencies.fulfilled, (state, action) => {
         state.currencyList = action.payload;
-        [state.activeCurrency] = action.payload;
+        state.activeCurrency = action.payload[0].label;
         state.status = status.SUCCEEDED;
       })
       .addCase(loadCurrencies.rejected, (state) => {
