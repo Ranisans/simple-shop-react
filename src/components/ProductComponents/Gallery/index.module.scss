@@ -1,0 +1,36 @@
+$imageWidth: 79px;
+$imageHeight: 80px;
+
+.root {
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+
+  width: fit-content;
+
+  gap: 40px;
+  scrollbar-width: 0;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.imageWrapper {
+  box-sizing: border-box;
+  width: calc($imageWidth + 2px);
+  height: calc($imageHeight + 2px);
+
+  border: 1px solid #ffffff;
+}
+
+.activeImageWrapper {
+  border-color: #5ece7b;
+}
+
+.image {
+  width: 79px;
+  height: 80px;
+
+  object-fit: cover;
+}
