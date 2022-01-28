@@ -1,0 +1,14 @@
+.root {
+  position: relative;
+
+  display: grid;
+  overflow: hidden;
+
+  height: 100vh;
+
+  grid-template-rows: auto 1fr;
+}
+
+.secondRow {
+  overflow-y: auto;
+}

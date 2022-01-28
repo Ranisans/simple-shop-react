@@ -9,6 +9,7 @@ import { loadCategories } from 'store/categorySlice';
 import { loadCurrencies } from 'store/currencySlice';
 import Navbar from 'components/share/Navbar';
 import AppRouter from './AppRoutes';
+import styles from './App.module.scss';
 
 class App extends PureComponent {
   componentDidMount() {
@@ -23,9 +24,11 @@ class App extends PureComponent {
     if (!!activeCategory && !!activeCurrency) {
       return (
         <BrowserRouter>
-          <div>
+          <div className={styles.root}>
             <Navbar />
-            <AppRouter />
+            <div className={styles.secondRow}>
+              <AppRouter />
+            </div>
             {alertMessage && <AlertMessage />}
           </div>
         </BrowserRouter>
