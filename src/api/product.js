@@ -2,7 +2,7 @@ import { Field, Query } from '@tilework/opus';
 
 import { post } from './clientConnection';
 
-export const getProductsByCategory = async (categoryName) => {
+export const getProductsByCategoryQuery = (categoryName) => {
   const query = new Query('category')
     .addArgument('input', 'CategoryInput', { title: categoryName })
     .addField(
@@ -16,6 +16,12 @@ export const getProductsByCategory = async (categoryName) => {
             )
         )
     );
+
+  return query;
+};
+
+export const getProductsByCategory = async (categoryName) => {
+  const query = getProductsByCategoryQuery(categoryName);
 
   return post(query);
 };
