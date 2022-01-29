@@ -1,21 +1,102 @@
+$blockHeight: 511px;
+
+.root {
+  display: grid;
+  overflow: hidden;
+
+  height: $blockHeight;
+  padding: 80px 0 0 100px;
+
+  grid-template-columns: 119px 710px 298px;
+}
+
 .gallery {
-  height: 510px;
+  height: $blockHeight;
 }
 
 .previewImage {
   width: 610px;
-  height: 511px;
+  height: $blockHeight;
 
   object-fit: cover;
 }
 
+.descriptionBlock {
+  display: grid;
+  overflow-y: auto;
+  flex-direction: column;
+
+  width: 298px;
+  height: 100%;
+}
+
+.attributeBlock {
+  margin-bottom: 40px;
+}
+
 .nameBlock {
+  display: grid;
+
+  margin-bottom: 43px;
+
   font-size: 30px;
   line-height: 27px;
 
   color: #1d1f22;
+
+  gap: 14px;
 }
 
 .firstName {
   font-weight: 600;
+}
+
+.priceBlock {
+  margin-bottom: 31px;
+}
+
+.priceLabel {
+  margin-bottom: 23px;
+
+  font-family: "Roboto Condensed", serif;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 18px;
+
+  text-transform: uppercase;
+}
+
+.price {
+  font-family: Raleway, serif;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 18px;
+
+  color: #1d1f22;
+}
+
+.button {
+  width: 292px;
+  height: 52px;
+  margin-bottom: 40px;
+
+  font-family: Raleway, serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+
+  color: #ffffff;
+  border: 0;
+  background: #5ece7b;
+
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.disabledButton {
+  background: #c7c7c7;
+
+  cursor: default;
 }

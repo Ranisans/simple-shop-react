@@ -1,0 +1,43 @@
+$colorButtonWidth: 48px;
+$simpleButtonWidth: 63px;
+$buttonHeight: 45px;
+
+.attributesBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attributeName {
+  font-family: "Roboto Condensed", serif;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 18px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  color: #1d1f22;
+}
+
+.attributeButtonWrapper {
+  display: flex;
+
+  gap: 12px;
+}
+
+.simpleButton {
+  width: $simpleButtonWidth;
+  height: $buttonHeight;
+
+  font-family: "Source Sans Pro", serif;
+  font-size: 16px;
+  line-height: 18px;
+
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.colorButtonSize {
+  width: $colorButtonWidth;
+  height: $buttonHeight;
+}

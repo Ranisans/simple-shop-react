@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ProductNameBlock from 'components/share/ProductNameBlock';
+import AttributesBlock from 'components/ProductComponents/AttributesBlock';
+import PriceBlock from 'components/share/PriceBlock';
+import classUnion from 'utils/classUnion';
 import Gallery from '../Gallery';
 import PreviewImage from '../PreviewImage';
 import styles from './index.module.scss';
@@ -10,24 +13,39 @@ import styles from './index.module.scss';
 class ProductPage extends PureComponent {
   render() {
     const {
-      productData: { name },
+      productData: { name, prices, inStock, description },
     } = this.props;
     return (
-      <div>
+      <div className={styles.root}>
         <Gallery galleryClass={styles.gallery} />
-        <div>
-          <PreviewImage className={styles.previewImage} />
-          <div>
-            <ProductNameBlock
-              text={name}
-              className={styles.nameBlock}
-              firstNameClass={styles.firstName}
-            />
-            <div>attributes block</div>
-            <div>price block</div>
-            <div>add to cart button</div>
-            <div>description</div>
+        <PreviewImage className={styles.previewImage} />
+        <div className={styles.descriptionBlock}>
+          <ProductNameBlock
+            text={name}
+            className={styles.nameBlock}
+            firstNameClass={styles.firstName}
+          />
+          <AttributesBlock className={styles.attributeBlock} />
+          <div className={styles.priceBlock}>
+            <div className={styles.priceLabel}>price:</div>
+            <PriceBlock className={styles.price} prices={prices} />
           </div>
+
+          <button
+            type="button"
+            disabled={!inStock}
+            className={classUnion(
+              styles.button,
+              !inStock && styles.disabledButton
+            )}
+          >
+            ADD TO CART
+          </button>
+
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </div>
       </div>
     );
@@ -37,7 +55,6 @@ class ProductPage extends PureComponent {
 const mapStateToProps = (state) => ({
   productData: state.activeProduct.productData,
 });
-
 export default connect(mapStateToProps)(ProductPage);
 
 ProductPage.propTypes = {
@@ -54,17 +71,6 @@ ProductPage.propTypes = {
         }).isRequired,
       })
     ).isRequired,
-    attributes: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        items: PropTypes.arrayOf(
-          PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            value: PropTypes.string.isRequired,
-          }).isRequired
-        ).isRequired,
-      })
-    ),
+    inStock: PropTypes.bool.isRequired,
   }).isRequired,
 };
