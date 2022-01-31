@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { resetAlertMessage } from 'store/alertMessageSlice';
+import styles from './index.module.scss';
 
 class AlertMessage extends PureComponent {
   constructor(props) {
@@ -23,6 +24,7 @@ class AlertMessage extends PureComponent {
         tabIndex="0"
         onClick={this.clickHandler}
         onKeyDown={this.clickHandler}
+        className={styles.root}
       >
         <p>{alertMessage}</p>
       </div>

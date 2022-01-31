@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { addItem } from 'store/cartSlice';
+import { setAlertMessage } from 'store/alertMessageSlice';
 import classUnion from 'utils/classUnion';
+import { ADD_PRODUCT_TO_CART } from 'constants/alertMessages';
 import styles from './index.module.scss';
 
 class CartButton extends PureComponent {
@@ -15,6 +17,17 @@ class CartButton extends PureComponent {
 
   buttonHandler() {
     const { productData, attributes } = this.props;
+
+    const keys = Object.keys(attributes);
+
+    for (const key of keys) {
+      if (!attributes[key]) {
+        // eslint-disable-next-line react/destructuring-assignment
+        this.props.setAlertMessage(ADD_PRODUCT_TO_CART);
+        return;
+      }
+    }
+
     // eslint-disable-next-line react/destructuring-assignment
     this.props.addItem({ productData, attributes });
   }
@@ -43,6 +56,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   addItem,
+  setAlertMessage,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartButton);
@@ -65,4 +79,5 @@ CartButton.propTypes = {
   }).isRequired,
   attributes: PropTypes.objectOf(PropTypes.string).isRequired,
   addItem: PropTypes.func.isRequired,
+  setAlertMessage: PropTypes.func.isRequired,
 };

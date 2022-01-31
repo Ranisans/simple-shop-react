@@ -8,6 +8,17 @@ import classUnion from 'utils/classUnion';
 import styles from './index.module.scss';
 
 class AttributesBlock extends PureComponent {
+  componentDidMount() {
+    const {
+      productData: { attributes },
+      setAttribute: setCurrentAttribute,
+    } = this.props;
+
+    attributes.forEach((element) => {
+      setCurrentAttribute({ key: element.name, value: null });
+    });
+  }
+
   render() {
     const {
       productData: { attributes },
