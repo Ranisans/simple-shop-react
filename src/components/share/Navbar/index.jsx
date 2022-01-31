@@ -31,8 +31,22 @@ class Navbar extends PureComponent {
   }
 
   render() {
-    const { currencyList, categoryList, activeCurrency, activeCategory } =
-      this.props;
+    const {
+      currencyList,
+      categoryList,
+      activeCurrency,
+      activeCategory,
+      cartProductsId,
+    } = this.props;
+
+    let cartSize = null;
+
+    if (cartProductsId.length > 9) {
+      cartSize = '9+';
+    } else if (cartProductsId.length > 0) {
+      cartSize = cartProductsId.length;
+    }
+
     return (
       <div className={styles.root}>
         <div className={styles.categoryWrapper}>
@@ -69,6 +83,7 @@ class Navbar extends PureComponent {
           </select>
           <div className={styles.cartWrapper}>
             <img src={cartIcon} alt="cart" className={styles.cartIcon} />
+            {cartSize && <div className={styles.cartSize}>{cartSize}</div>}
           </div>
         </div>
       </div>
@@ -81,6 +96,7 @@ const mapStateToProps = (state) => ({
   activeCurrency: state.currency.activeCurrency,
   categoryList: state.category.categoryList,
   activeCategory: state.category.activeCategory,
+  cartProductsId: state.cart.productsId,
 });
 
 const mapDispatchToProps = { setActiveCategory, setActiveCurrency };
@@ -94,4 +110,5 @@ Navbar.propTypes = {
   activeCurrency: PropTypes.string.isRequired,
   setActiveCategory: PropTypes.func.isRequired,
   setActiveCurrency: PropTypes.func.isRequired,
+  cartProductsId: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
