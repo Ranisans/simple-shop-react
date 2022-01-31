@@ -5,7 +5,7 @@ const name = 'cart';
 const initialState = [];
 
 const findIndex = (state, productData) =>
-  state.findIndex((item) => item.product.id === productData.id);
+  state.findIndex((item) => item.productData.id === productData.id);
 
 export const cartSlice = createSlice({
   name,

@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 import ProductNameBlock from 'components/share/ProductNameBlock';
 import AttributesBlock from 'components/ProductComponents/AttributesBlock';
 import PriceBlock from 'components/share/PriceBlock';
-import classUnion from 'utils/classUnion';
 import Gallery from '../Gallery';
 import PreviewImage from '../PreviewImage';
+import CartButton from '../CartButton';
 import styles from './index.module.scss';
 
 class ProductPage extends PureComponent {
   render() {
     const {
-      productData: { name, prices, inStock, description },
+      productData: { name, prices, description },
     } = this.props;
     return (
       <div className={styles.root}>
@@ -31,16 +31,7 @@ class ProductPage extends PureComponent {
             <PriceBlock className={styles.price} prices={prices} />
           </div>
 
-          <button
-            type="button"
-            disabled={!inStock}
-            className={classUnion(
-              styles.button,
-              !inStock && styles.disabledButton
-            )}
-          >
-            ADD TO CART
-          </button>
+          <CartButton />
 
           <div
             // eslint-disable-next-line react/no-danger
