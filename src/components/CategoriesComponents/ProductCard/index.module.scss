@@ -1,8 +1,14 @@
 .root {
+  position: relative;
+
   overflow: hidden;
 
-  width: 333px;
+  box-sizing: border-box;
+  width: 386px;
   height: 444px;
+  padding: 16px 16px 0 16px;
+
+  box-shadow: 0 4px 35px rgba(168, 172, 176, 0.19);
 
   cursor: pointer;
   text-decoration: none;
@@ -13,13 +19,24 @@
 
   width: 354px;
   height: 330px;
+}
 
-  & img {
-    width: 354px;
-    height: 330px;
+.productImage {
+  width: 354px;
+  height: 330px;
 
-    object-fit: cover;
-  }
+  object-fit: cover;
+}
+
+
+.cartIcon {
+  position: absolute;
+  right: 31px;
+  bottom: 72px;
+  z-index: 100;
+
+  width: 52px;
+  height: 52px;
 }
 
 .outOfStock {

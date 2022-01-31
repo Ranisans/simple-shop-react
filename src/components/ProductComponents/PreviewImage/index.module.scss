@@ -1,8 +1,9 @@
 .root {
   position: relative;
+}
 
-  width: fit-content;
-  height: fit-content;
+.image {
+  object-fit: cover;
 }
 
 .outOfStock {
@@ -25,4 +26,14 @@
   background-color: rgba($color: #ffffff, $alpha: 0.5);
 
   text-transform: uppercase;
+}
+
+.cartIcon {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  z-index: 100;
+
+  width: 70px;
+  height: 70px;
 }

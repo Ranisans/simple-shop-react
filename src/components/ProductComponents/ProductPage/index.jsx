@@ -18,7 +18,7 @@ class ProductPage extends PureComponent {
     return (
       <div className={styles.root}>
         <Gallery galleryClass={styles.gallery} />
-        <PreviewImage className={styles.previewImage} />
+        <PreviewImage classImageSize={styles.previewImageSize} />
         <div className={styles.descriptionBlock}>
           <ProductNameBlock
             text={name}

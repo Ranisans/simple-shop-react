@@ -14,11 +14,9 @@ $blockHeight: 511px;
   height: $blockHeight;
 }
 
-.previewImage {
+.previewImageSize {
   width: 610px;
   height: $blockHeight;
-
-  object-fit: cover;
 }
 
 .descriptionBlock {

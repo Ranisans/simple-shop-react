@@ -1,19 +1,27 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import PriceBlock from 'components/share/PriceBlock';
 import { PRODUCT_PAGE } from 'constants/pagesURL';
 import classUnion from 'utils/classUnion';
+import inCartIcon from 'assets/images/in-cart-icon.svg';
 import styles from './index.module.scss';
 
 class ProductCard extends PureComponent {
   render() {
-    const { id, name, inStock, gallery, prices } = this.props;
+    const { id, name, inStock, gallery, prices, productsIdInCart } = this.props;
+    const isInCart = productsIdInCart.includes(id);
     return (
       <Link to={`${PRODUCT_PAGE}/${id}`} className={styles.root}>
         <div className={styles.imageWrapper}>
-          <img src={gallery[0]} alt={name} loading="lazy" />
+          <img
+            src={gallery[0]}
+            alt={name}
+            loading="lazy"
+            className={styles.productImage}
+          />
           {!inStock && <div className={styles.outOfStock}>out of stock</div>}
         </div>
         <div
@@ -25,12 +33,19 @@ class ProductCard extends PureComponent {
           <div>{name}</div>
           <PriceBlock prices={prices} className={styles.price} />
         </div>
+        {isInCart && (
+          <img src={inCartIcon} alt="cart icon" className={styles.cartIcon} />
+        )}
       </Link>
     );
   }
 }
 
-export default ProductCard;
+const mapStateToProps = (state) => ({
+  productsIdInCart: state.cart.productsId,
+});
+
+export default connect(mapStateToProps)(ProductCard);
 
 ProductCard.propTypes = {
   id: PropTypes.string.isRequired,
@@ -46,4 +61,5 @@ ProductCard.propTypes = {
       }).isRequired,
     })
   ).isRequired,
+  productsIdInCart: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
