@@ -1,0 +1,41 @@
+.root {
+  position: relative;
+
+  width: max-content;
+
+  user-select: none;
+}
+
+.imageBlock {
+  background-position: center;
+  background-size: cover;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.leftArrow {
+  right: 50%;
+  left: 0;
+}
+
+.rightArrow {
+  right: 0;
+  left: 50%;
+
+  justify-content: end;
+}
+
+.arrowImg {
+  padding-right: 9px;
+}
+
+.leftArrowImg {
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}

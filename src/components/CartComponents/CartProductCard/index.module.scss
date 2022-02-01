@@ -1,0 +1,128 @@
+$colorButtonWidth: 48px;
+$simpleButtonWidth: 63px;
+$buttonHeight: 45px;
+$imageHeight: 218px;
+
+.root {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  border-top: 1px solid #e5e5e5;
+}
+
+.productName {
+  margin-bottom: 24px;
+
+  font-family: Raleway;
+  font-size: 30px;
+
+  color: #1d1f22;
+}
+
+.firstName {
+  font-weight: 600;
+}
+
+.priceBlock {
+  margin-bottom: 22px;
+
+  font-family: Raleway;
+  font-size: 24px;
+  font-weight: bold;
+
+  color: #1d1f22;
+}
+
+.attributeName {
+  margin-bottom: 8px;
+
+  font-family: "Roboto Condensed", serif;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+
+  color: #1d1f22;
+
+  text-transform: uppercase;
+}
+
+.attributeBlock {
+  display: flex;
+
+  gap: 20px;
+}
+
+.attributeButtonBlock {
+  display: flex;
+
+  gap: 12px;
+}
+
+.simpleButton {
+  width: $simpleButtonWidth;
+  height: $buttonHeight;
+
+  font-family: "Source Sans Pro", serif;
+  font-size: 16px;
+  line-height: 18px;
+
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.colorButtonSize {
+  width: $colorButtonWidth;
+  height: $buttonHeight;
+}
+
+.leftPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rightPart {
+  display: flex;
+
+  height: $imageHeight;
+
+  gap: 12px;
+}
+
+.counterWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-family: Raleway, serif;
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+
+  color: #1d1f22;
+
+  text-align: center;
+}
+
+.counterButton {
+  width: 45px;
+  height: 45px;
+}
+
+.counterImage {
+  width: 15px;
+  height: 15px;
+}
+
+.carouselImageSize {
+  width: 141px;
+  height: $imageHeight;
+}
+
+.carouselArrowsStyle {
+  width: 6px;
+  height: 12px;
+}

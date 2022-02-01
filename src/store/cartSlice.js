@@ -36,7 +36,7 @@ export const cartSlice = createSlice({
       const { payload } = action;
       const itemIndex = findIndex(state, payload.productData);
       if (itemIndex >= 0) {
-        state.products[itemIndex].count += 0;
+        state.products[itemIndex].count += 1;
       }
     },
     decreaseItem(state, action) {

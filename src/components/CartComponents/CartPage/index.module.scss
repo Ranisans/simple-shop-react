@@ -1,0 +1,29 @@
+.root {
+  display: grid;
+  overflow: hidden;
+
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0 100px 54px 100px;
+
+  grid-template-rows: auto 1fr;
+}
+
+.name {
+  padding-top: 80px;
+  padding-bottom: 59px;
+
+  font-family: Raleway;
+  font-size: 32px;
+  font-weight: bold;
+
+  color: #1d1f22;
+
+  text-transform: uppercase;
+}
+
+.cartItems {
+  overflow-y: auto;
+
+  max-width: 1097px;
+}
