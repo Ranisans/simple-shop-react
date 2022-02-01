@@ -6,6 +6,7 @@ import { addItem } from 'store/cartSlice';
 import { setAlertMessage } from 'store/alertMessageSlice';
 import classUnion from 'utils/classUnion';
 import { ADD_PRODUCT_TO_CART } from 'constants/alertMessages';
+import { productFields } from 'props/productData';
 import styles from './index.module.scss';
 
 class CartButton extends PureComponent {
@@ -62,21 +63,7 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(CartButton);
 
 CartButton.propTypes = {
-  productData: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    prices: PropTypes.arrayOf(
-      PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        currency: PropTypes.shape({
-          label: PropTypes.string.isRequired,
-          symbol: PropTypes.string.isRequired,
-        }).isRequired,
-      })
-    ).isRequired,
-    inStock: PropTypes.bool.isRequired,
-  }).isRequired,
+  productData: PropTypes.shape(productFields).isRequired,
   attributes: PropTypes.objectOf(PropTypes.string).isRequired,
   addItem: PropTypes.func.isRequired,
   setAlertMessage: PropTypes.func.isRequired,

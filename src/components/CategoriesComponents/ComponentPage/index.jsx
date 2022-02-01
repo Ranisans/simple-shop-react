@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import { productFields } from 'props/productData';
 import ProductCard from '../ProductCard';
 import styles from './index.module.scss';
 
@@ -28,7 +29,7 @@ export default ComponentPage;
 
 ComponentPage.propTypes = {
   category: PropTypes.shape({
-    products: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    products: PropTypes.arrayOf(PropTypes.shape(productFields)).isRequired,
   }).isRequired,
   categoryName: PropTypes.string.isRequired,
 };

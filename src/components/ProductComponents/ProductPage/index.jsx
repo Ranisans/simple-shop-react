@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ProductNameBlock from 'components/share/ProductNameBlock';
 import AttributesBlock from 'components/ProductComponents/AttributesBlock';
 import PriceBlock from 'components/share/PriceBlock';
+import { productFields } from 'props/productData';
 import Gallery from '../Gallery';
 import PreviewImage from '../PreviewImage';
 import CartButton from '../CartButton';
@@ -49,19 +50,5 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(ProductPage);
 
 ProductPage.propTypes = {
-  productData: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    prices: PropTypes.arrayOf(
-      PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        currency: PropTypes.shape({
-          label: PropTypes.string.isRequired,
-          symbol: PropTypes.string.isRequired,
-        }).isRequired,
-      })
-    ).isRequired,
-    inStock: PropTypes.bool.isRequired,
-  }).isRequired,
+  productData: PropTypes.shape(productFields).isRequired,
 };

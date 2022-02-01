@@ -4,6 +4,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import classUnion from 'utils/classUnion';
+import { attributeFields } from 'props/productData';
 import { COLOR_BUTTON_TYPE } from 'constants/etc';
 import innerStyles from './index.module.scss';
 
@@ -84,16 +85,7 @@ class CategoryButtonBlock extends PureComponent {
 export default CategoryButtonBlock;
 
 CategoryButtonBlock.propTypes = {
-  attribute: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-      })
-    ),
-  }).isRequired,
+  attribute: PropTypes.shape(attributeFields).isRequired,
   activeAttributes: PropTypes.objectOf(PropTypes.string).isRequired,
   setAttribute: PropTypes.func.isRequired,
   styles: PropTypes.shape({

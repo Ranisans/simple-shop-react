@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { priceFields } from 'props/productData';
 
 class PriceBlock extends PureComponent {
   render() {
@@ -28,15 +29,7 @@ const mapStateToProps = (store) => ({
 export default connect(mapStateToProps)(PriceBlock);
 
 PriceBlock.propTypes = {
-  prices: PropTypes.arrayOf(
-    PropTypes.shape({
-      amount: PropTypes.number.isRequired,
-      currency: PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        symbol: PropTypes.string.isRequired,
-      }).isRequired,
-    })
-  ).isRequired,
+  prices: PropTypes.arrayOf(PropTypes.shape(priceFields)).isRequired,
   className: PropTypes.string.isRequired,
   activeCurrency: PropTypes.string.isRequired,
 };

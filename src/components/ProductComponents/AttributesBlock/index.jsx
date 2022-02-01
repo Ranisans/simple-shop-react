@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import CategoryButtonBlock from 'components/share/CategoryButtonsBlock';
 import { setAttribute } from 'store/activeProductSlice';
 import classUnion from 'utils/classUnion';
+import { productFields } from 'props/productData';
 import styles from './index.module.scss';
 
 class AttributesBlock extends PureComponent {
@@ -59,20 +60,7 @@ const mapDispatchToProps = { setAttribute };
 export default connect(mapStateToProps, mapDispatchToProps)(AttributesBlock);
 
 AttributesBlock.propTypes = {
-  productData: PropTypes.shape({
-    attributes: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        items: PropTypes.arrayOf(
-          PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            value: PropTypes.string.isRequired,
-          }).isRequired
-        ).isRequired,
-      })
-    ),
-  }).isRequired,
+  productData: PropTypes.shape(productFields).isRequired,
   className: PropTypes.string.isRequired,
   activeAttributes: PropTypes.objectOf(PropTypes.string).isRequired,
   setAttribute: PropTypes.func.isRequired,

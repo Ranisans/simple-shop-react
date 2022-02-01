@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import PriceBlock from 'components/share/PriceBlock';
 import { PRODUCT_PAGE } from 'constants/pagesURL';
 import classUnion from 'utils/classUnion';
+import { productFields } from 'props/productData';
 import inCartIcon from 'assets/images/in-cart-icon.svg';
 import styles from './index.module.scss';
 
@@ -48,18 +49,6 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(ProductCard);
 
 ProductCard.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  inStock: PropTypes.bool.isRequired,
-  gallery: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  prices: PropTypes.arrayOf(
-    PropTypes.shape({
-      amount: PropTypes.number.isRequired,
-      currency: PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        symbol: PropTypes.string.isRequired,
-      }).isRequired,
-    })
-  ).isRequired,
+  ...productFields,
   productsIdInCart: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
