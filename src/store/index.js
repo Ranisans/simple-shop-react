@@ -5,6 +5,7 @@ import currencyReducer from './currencySlice';
 import activeProductReducer from './activeProductSlice';
 import alertMessageReducer from './alertMessageSlice';
 import cartReducer from './cartSlice';
+import cartBoxReducer from './cartBoxSlice';
 
 const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ const store = configureStore({
     activeProduct: activeProductReducer,
     alertMessage: alertMessageReducer,
     cart: cartReducer,
+    cartBox: cartBoxReducer,
   },
 });
 

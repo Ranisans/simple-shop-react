@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 
 import AlertMessage from 'components/share/AlertMessage';
 import Spinner from 'components/share/Spinner';
+import Navbar from 'components/NavbarComponents/Navbar';
 import { loadCategories } from 'store/categorySlice';
 import { loadCurrencies } from 'store/currencySlice';
-import Navbar from 'components/share/Navbar';
 import AppRouter from './AppRoutes';
 import styles from './App.module.scss';
 

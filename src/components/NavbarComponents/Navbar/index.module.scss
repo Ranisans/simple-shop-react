@@ -41,6 +41,7 @@ $cartIconHeight: 18px;
   border-bottom: 1px solid $activeCategoryColor;
 }
 
+
 .brandIcon {
   width: 32px;
   height: 29px;
@@ -54,6 +55,41 @@ $cartIconHeight: 18px;
 
   gap: 22px;
 }
+
+.cartWrapper {
+  position: relative;
+
+  width: $cartIconWidth;
+  height: $cartIconHeight;
+
+  cursor: pointer;
+}
+
+.cartIcon {
+  width: $cartIconWidth;
+  height: $cartIconHeight;
+}
+
+.cartSize {
+  position: absolute;
+  top: -10px;
+  right: -13px;
+
+  width: 20px;
+  height: 20px;
+
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+
+  color: #fff;
+  border-radius: 50%;
+  background-color: #1d1f22;
+
+  text-align: center;
+}
+
 
 .cartWrapper {
   position: relative;
