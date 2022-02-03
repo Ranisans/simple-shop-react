@@ -1,14 +1,17 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
+import { CART_PAGE } from 'constants/pagesURL';
+import { changeVisibility } from 'store/cartBoxSlice';
 import CartBoxCart from '../CartBoxCard';
 import styles from './index.module.scss';
 import TotalPrice from '../TotalPrice';
 
 class CartBox extends PureComponent {
   render() {
-    const { productsId } = this.props;
+    const { productsId, changeVisibility: hideCartBox } = this.props;
 
     const clickHandler = (event) => {
       event.stopPropagation();
@@ -35,9 +38,15 @@ class CartBox extends PureComponent {
         </div>
         <TotalPrice />
         <div className={styles.buttonContainer}>
-          <button type="button" className={styles.viewBagButton}>
-            view bag
-          </button>
+          <Link to={CART_PAGE}>
+            <button
+              type="button"
+              onClick={hideCartBox}
+              className={styles.viewBagButton}
+            >
+              view bag
+            </button>
+          </Link>
           <button type="button" className={styles.checkOutButton}>
             check out
           </button>
@@ -51,8 +60,13 @@ const mapStateToProps = (state) => ({
   productsId: state.cart.productsId,
 });
 
-export default connect(mapStateToProps)(CartBox);
+const mapDispatchToProps = {
+  changeVisibility,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartBox);
 
 CartBox.propTypes = {
   productsId: PropTypes.arrayOf(PropTypes.string).isRequired,
+  changeVisibility: PropTypes.func.isRequired,
 };
