@@ -10,5 +10,13 @@
 }
 
 .secondRow {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.secondRowContentWrapper {
   overflow-y: auto;
+
+  height: 100%;
 }

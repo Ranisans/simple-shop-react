@@ -1,0 +1,73 @@
+.root {
+  display: grid;
+
+  box-sizing: border-box;
+  width: 352px;
+  max-height: 540px;
+  padding: 6px 16px 20px 16px;
+
+  background-color: #ffffff;
+
+  grid-template-rows: 59px 315px 63px 78px;
+}
+
+.title {
+  margin-bottom: 23px;
+
+  font-family: Raleway;
+  font-size: 16px;
+  font-weight: 600;
+
+  color: #1d1f22;
+}
+
+.bagTitle {
+  font-weight: 700;
+}
+
+.itemsContainer {
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+
+  height: 100%;
+
+  gap: 41px;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  & button {
+    font-family: Raleway;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: normal;
+
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+
+.viewBagButton {
+  box-sizing: border-box;
+  width: 140px;
+  height: 43px;
+
+  color: #1d1f22;
+  border: 1px solid #1d1f22;
+  background: #ffffff;
+}
+
+.checkOutButton {
+  width: 140px;
+  height: 43px;
+
+  color: #ffffff;
+  border: 0;
+  background: #5ece7b;
+}

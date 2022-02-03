@@ -8,15 +8,15 @@ export const priceFields = {
   }),
 };
 
+export const singleAttributeFields = {
+  id: string,
+  value: string,
+};
+
 export const attributeFields = {
   name: string,
   type: string,
-  items: arrayOf(
-    shape({
-      id: string,
-      value: string,
-    })
-  ),
+  items: arrayOf(shape(singleAttributeFields)),
 };
 
 export const productFields = {

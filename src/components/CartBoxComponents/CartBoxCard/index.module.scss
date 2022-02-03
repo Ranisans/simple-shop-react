@@ -1,0 +1,74 @@
+$imageWidth: 105px;
+$imageHeight: 137px;
+
+.root {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rightBox {
+  display: flex;
+
+  gap: 10px;
+}
+
+.productName {
+  font-style: normal;
+  &Block {
+    margin-bottom: 15px;
+
+    font-family: Raleway, serif;
+    font-size: 16px;
+    font-weight: 300;
+
+    color: #1d1f22;
+  }
+}
+
+.priceBlock {
+  font-family: Raleway, serif;
+  font-size: 16px;
+  font-weight: 500;
+
+  color: #1d1f22;
+}
+
+.counterWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-family: Raleway, serif;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+
+  color: #1d1f22;
+
+  text-align: center;
+}
+
+.counterButton {
+  width: 24px;
+  height: 24px;
+}
+
+.counterImage {
+  width: 8px;
+  height: 8px;
+}
+
+.carouselImageSize {
+  width: $imageWidth;
+  height: $imageHeight;
+}
+
+.carouselArrowsStyle {
+  display: none;
+}

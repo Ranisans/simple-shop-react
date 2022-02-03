@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import AlertMessage from 'components/share/AlertMessage';
 import Spinner from 'components/share/Spinner';
 import Navbar from 'components/NavbarComponents/Navbar';
+import CartBoxWrapper from 'components/CartBoxComponents/CartBoxWrapper';
 import { loadCategories } from 'store/categorySlice';
 import { loadCurrencies } from 'store/currencySlice';
 import AppRouter from './AppRoutes';
@@ -27,7 +28,10 @@ class App extends PureComponent {
           <div className={styles.root}>
             <Navbar />
             <div className={styles.secondRow}>
-              <AppRouter />
+              <div className={styles.secondRowContentWrapper}>
+                <AppRouter />
+              </div>
+              <CartBoxWrapper />
             </div>
             {alertMessage && <AlertMessage />}
           </div>
